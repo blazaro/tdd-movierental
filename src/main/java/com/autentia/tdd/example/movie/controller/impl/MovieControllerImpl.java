@@ -10,8 +10,7 @@ import com.autentia.tdd.example.movie.service.exception.MovieServiceException;
 
 public class MovieControllerImpl implements MovieController {
 
-	public static final String NO_HAY_PELICULAS_DISPONIBLES = "No hay peliculas disponibles.";
-	public static final String HA_OCURRIDO_UN_ERROR = "Ha ocurrido un error.";
+	
 	private final MovieCatalog movieCatalog;
 
 	public MovieControllerImpl(MovieCatalog movieCatalog) {
@@ -22,15 +21,12 @@ public class MovieControllerImpl implements MovieController {
 		try {
 			return buildCatalogResponse(movieCatalog.search());
 		} catch (MovieServiceException e) {
-			return new CatalogResponse(HA_OCURRIDO_UN_ERROR);
+			return new CatalogResponse(e);
 		}
 	}
 
 	private CatalogResponse buildCatalogResponse(List<Movie> movies) {
-		if(movies != null && !movies.isEmpty()){
-			return new CatalogResponse(movies);
-		}
-		return new CatalogResponse(NO_HAY_PELICULAS_DISPONIBLES);
+		return new CatalogResponse(movies);
 	}
 
 }

@@ -46,7 +46,7 @@ public class MovieControllerTest {
 		final CatalogResponse catalogResponse = movieControllerSUT.search();
 		//then
 		assertThat(catalogResponse,is(not(nullValue())));
-		assertThat(catalogResponse.getErroMessage(),is(MovieControllerImpl.NO_HAY_PELICULAS_DISPONIBLES));
+		assertThat(catalogResponse.getErroMessage(),is(CatalogResponse.NO_HAY_PELICULAS_DISPONIBLES));
 		assertThat(catalogResponse.getMovies(),is(empty()));
 	}
 	
@@ -58,7 +58,7 @@ public class MovieControllerTest {
 		final CatalogResponse catalogResponse = movieControllerSUT.search();
 		//then
 		assertThat(catalogResponse,is(not(nullValue())));
-		assertThat(catalogResponse.getErroMessage(),is(MovieControllerImpl.HA_OCURRIDO_UN_ERROR));
+		assertThat(catalogResponse.getErroMessage(),is(CatalogResponse.HA_OCURRIDO_UN_ERROR));
 		assertThat(catalogResponse.getMovies(),is(empty()));
 	}
 }
