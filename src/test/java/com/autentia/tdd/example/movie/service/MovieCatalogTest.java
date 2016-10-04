@@ -30,5 +30,14 @@ public class MovieCatalogTest {
 		assertThat(movies,hasSize(1));
 		assertThat(movies.get(0).getName(),is(IRONMAN));
 	}
+	
+	@Test(expected=MovieServiceException.class)
+	public void shouldThrowAnExceptionIfDaoFail(){
+		//given
+		doThrow(MovieDaoException.class).when(movieDao.find());
+		//when
+		filmCatalogSUT.search();
+		//then es la anotación @expected
+	}
 
 }
