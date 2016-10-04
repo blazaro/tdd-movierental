@@ -11,6 +11,7 @@ import com.autentia.tdd.example.movie.service.exception.MovieServiceException;
 public class MovieControllerImpl implements MovieController {
 
 	public static final String NO_HAY_PELICULAS_DISPONIBLES = "No hay peliculas disponibles.";
+	public static final String HA_OCURRIDO_UN_ERROR = "Ha ocurrido un error.";
 	private final MovieCatalog movieCatalog;
 
 	public MovieControllerImpl(MovieCatalog movieCatalog) {

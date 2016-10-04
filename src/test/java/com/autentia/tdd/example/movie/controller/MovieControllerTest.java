@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.autentia.tdd.example.movie.controller.impl.MovieControllerImpl;
 import com.autentia.tdd.example.movie.controller.response.CatalogResponse;
+import com.autentia.tdd.example.movie.dao.exception.MovieDaoException;
 import com.autentia.tdd.example.movie.model.Movie;
 import com.autentia.tdd.example.movie.service.MovieCatalog;
 import com.autentia.tdd.example.movie.service.exception.MovieServiceException;
@@ -46,6 +47,18 @@ public class MovieControllerTest {
 		//then
 		assertThat(catalogResponse,is(not(nullValue())));
 		assertThat(catalogResponse.getErroMessage(),is(MovieControllerImpl.NO_HAY_PELICULAS_DISPONIBLES));
+		assertThat(catalogResponse.getMovies(),is(empty()));
+	}
+	
+	@Test
+	public void shouldReturnServiceErrorMessageIfServiceFail() throws MovieServiceException{
+		//given
+		when(movieCatalog.search()).thenThrow(new MovieServiceException(new MovieDaoException()));
+		//when
+		final CatalogResponse catalogResponse = movieControllerSUT.search();
+		//then
+		assertThat(catalogResponse,is(not(nullValue())));
+		assertThat(catalogResponse.getErroMessage(),is(MovieControllerImpl.HA_OCURRIDO_UN_ERROR));
 		assertThat(catalogResponse.getMovies(),is(empty()));
 	}
 }
