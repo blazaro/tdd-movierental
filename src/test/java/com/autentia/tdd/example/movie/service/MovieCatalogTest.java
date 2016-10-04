@@ -7,8 +7,11 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Test;
+
 import com.autentia.tdd.example.movie.dao.MovieDAO;
 import com.autentia.tdd.example.movie.model.Movie;
+import com.autentia.tdd.example.movie.service.impl.MovieCatalogImpl;
 
 public class MovieCatalogTest {
 	
@@ -16,6 +19,7 @@ public class MovieCatalogTest {
 	
 	private final MovieCatalog filmCatalogSUT = new MovieCatalogImpl(movieDao);
 	
+	@Test
 	public void shouldReturnMoviesFromDao(){
 		//given
 		String IRONMAN = "Ironman";
