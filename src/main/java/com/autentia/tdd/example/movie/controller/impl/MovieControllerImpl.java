@@ -22,7 +22,7 @@ public class MovieControllerImpl implements MovieController {
 		try {
 			return buildCatalogResponse(movieCatalog.search());
 		} catch (MovieServiceException e) {
-			return new CatalogResponse("ERROR");
+			return new CatalogResponse(HA_OCURRIDO_UN_ERROR);
 		}
 	}
 
