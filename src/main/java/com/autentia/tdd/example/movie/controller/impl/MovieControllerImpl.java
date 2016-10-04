@@ -10,6 +10,7 @@ import com.autentia.tdd.example.movie.service.exception.MovieServiceException;
 
 public class MovieControllerImpl implements MovieController {
 
+	public static final String NO_HAY_PELICULAS_DISPONIBLES = "No hay peliculas disponibles.";
 	private final MovieCatalog movieCatalog;
 
 	public MovieControllerImpl(MovieCatalog movieCatalog) {
@@ -28,7 +29,7 @@ public class MovieControllerImpl implements MovieController {
 		if(movies != null && !movies.isEmpty()){
 			return new CatalogResponse(movies);
 		}
-		return new CatalogResponse("No hay peliculas disponibles.");
+		return new CatalogResponse(NO_HAY_PELICULAS_DISPONIBLES);
 	}
 
 }

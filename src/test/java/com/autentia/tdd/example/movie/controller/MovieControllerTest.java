@@ -4,8 +4,11 @@ import static org.mockito.Mockito.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
-
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.Test;
 
 import com.autentia.tdd.example.movie.controller.impl.MovieControllerImpl;
@@ -34,4 +37,15 @@ public class MovieControllerTest {
 		assertThat(catalogResponse.getMovies().get(0).getName(),is(EL_CLUB_DE_LA_LUCHA));
 	}
 
+	@Test
+	public void shouldReturnErrorMessageIfTheCatalogIsEmpty() throws MovieServiceException{
+		//given
+		when(movieCatalog.search()).thenReturn(new ArrayList<Movie>());
+		//when
+		final CatalogResponse catalogResponse = movieControllerSUT.search();
+		//then
+		assertThat(catalogResponse,is(not(nullValue())));
+		assertThat(catalogResponse.getErroMessage(),is(MovieControllerImpl.NO_HAY_PELICULAS_DISPONIBLES));
+		assertThat(catalogResponse.getMovies(),is(empty()));
+	}
 }

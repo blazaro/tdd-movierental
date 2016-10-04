@@ -21,7 +21,7 @@ public class CatalogResponse {
 	}
 
 	public String getErroMessage() {
-		return null;
+		return errorMessage;
 	}
 
 	public List<Movie> getMovies() {
