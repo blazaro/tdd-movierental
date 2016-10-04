@@ -15,8 +15,7 @@ public class MovieCatalogImpl implements MovieCatalog {
 	}
 
 	public List<Movie> search() {
-		// TODO Auto-generated method stub
-		return null;
+		return movieDao.find();
 	}
 
 }
