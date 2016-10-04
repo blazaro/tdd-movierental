@@ -1,0 +1,25 @@
+Yo como usuario que alquila películas quiero poder buscar películas para poder filtrar mi búsqueda
+en el catálogo de películas
+
+Descripción
+---------------
+
+Actualmente las búsquedas del catálogo de películas son completas, es decir, siempre se obtienen
+todas las películas disponibles.
+
+Se desea poder aplicar un filtro de películas por título, de forma que se devuelvan sólo aquellas
+películas que contengan la / las palabras que se indiquen en el criterio.
+
+Se debe validar que el filtro que se está pasando es correcto (por ahora la implementación de
+la validación no es relevante), y poder filtrar las películas por título.
+
+Criterios de aceptación
+-------------------------
+
+- Comprobar que cuando se hace una búsqueda de películas por filtro, se devuelvan sólo aquellas
+películas que cumplen con el criterio de filtro
+
+- Comprobar que cuando el filtro está vacío, tiene el mismo comportamiento que la búsqueda total, 
+es decir, devuelve todas las películas.
+
+- Comprobar que cuando el filtro es incorrecto, se devuelve el siguiente error 'búsqueda inválida'

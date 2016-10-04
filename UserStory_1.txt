@@ -1,0 +1,22 @@
+Yo como usuario que alquila películas quiero disponer de un catálogo de películas para poder visualizarlas
+
+Descripción
+---------------
+
+Cuando un usuario quiere alquilar películas, necesita saber qué películas hay disponibles, de forma que 
+pueda en un futuro elegir la película que quiere ver.
+
+Por tanto habrá que crear un catálogo de películas que podrá visualizar
+de forma que cumpla el siguiente mockup [mockup].
+
+Por ahora no tendremos un catálogo real de películas, sino que tendremos 3 películas de ejemplo, 
+que el usuario podrá consultar.
+
+Criterios de aceptación
+-------------------------
+
+- Comprobar que cuando se solicita por parte del usuario consultar las películas, se muestran 
+correctamente
+- Comprobar que si no hay películas disponibles en el catálogo, no se muestra ninguna, y se muestra
+el mensaje "No hay películas disponibles"
+- Comprobar que si se produce un error en la consulta de películas, se muestra el mensaje "ha ocurrido un error"
