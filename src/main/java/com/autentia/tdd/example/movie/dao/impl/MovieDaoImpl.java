@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.autentia.tdd.example.movie.dao.MovieDAO;
+import com.autentia.tdd.example.movie.dao.exception.MovieDaoException;
 import com.autentia.tdd.example.movie.model.Movie;
 
 public class MovieDaoImpl implements MovieDAO {
 
-	public List<Movie> find() {
+	public List<Movie> find() throws MovieDaoException{
 		return Arrays.asList(new Movie("Star Wars"),new Movie("El señor de los anillos"),new Movie("Harry Potter"));
 	}
 

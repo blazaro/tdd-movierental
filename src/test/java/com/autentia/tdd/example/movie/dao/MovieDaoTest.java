@@ -3,6 +3,7 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import com.autentia.tdd.example.movie.dao.exception.MovieDaoException;
 import com.autentia.tdd.example.movie.dao.impl.MovieDaoImpl;
 
 public class MovieDaoTest {
@@ -10,7 +11,7 @@ public class MovieDaoTest {
 	private MovieDAO movieDaoSUT = new MovieDaoImpl();
 
 	@Test
-	public void shouldReturnMockedList(){
+	public void shouldReturnMockedList() throws MovieDaoException{
 		assertThat(movieDaoSUT.find(),hasSize(3));
 	}
 

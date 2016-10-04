@@ -10,7 +10,9 @@ import java.util.List;
 import org.junit.Test;
 
 import com.autentia.tdd.example.movie.dao.MovieDAO;
+import com.autentia.tdd.example.movie.dao.exception.MovieDaoException;
 import com.autentia.tdd.example.movie.model.Movie;
+import com.autentia.tdd.example.movie.service.exception.MovieServiceException;
 import com.autentia.tdd.example.movie.service.impl.MovieCatalogImpl;
 
 public class MovieCatalogTest {
@@ -20,7 +22,7 @@ public class MovieCatalogTest {
 	private final MovieCatalog filmCatalogSUT = new MovieCatalogImpl(movieDao);
 	
 	@Test
-	public void shouldReturnMoviesFromDao(){
+	public void shouldReturnMoviesFromDao() throws MovieDaoException, MovieServiceException{
 		//given
 		String IRONMAN = "Ironman";
 		when(movieDao.find()).thenReturn(Arrays.asList(new Movie(IRONMAN)));
@@ -32,9 +34,9 @@ public class MovieCatalogTest {
 	}
 	
 	@Test(expected=MovieServiceException.class)
-	public void shouldThrowAnExceptionIfDaoFail(){
+	public void shouldThrowAnExceptionIfDaoFail() throws MovieDaoException, MovieServiceException{
 		//given
-		doThrow(MovieDaoException.class).when(movieDao.find());
+		when(movieDao.find()).thenThrow(new MovieDaoException());
 		//when
 		filmCatalogSUT.search();
 		//then es la anotación @expected
